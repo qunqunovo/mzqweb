@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神秘礼物</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .hint {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .gift-box {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: #ff6347;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .gift-box::before, .gift-box::after {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+        }
+        .gift-box::before {
+            width: 20px;
+            height: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gift-box::after {
+            width: 150px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .gift-ribbon {
+            position: absolute;
+            top: -15px;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid #ffa500;
+        }
+        .message {
+            font-size: 1.8em;
+            color: #333;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hint" id="hint">点击拆开</div>
+<div class="gift-container">
+    <div class="gift-box" id="giftBox">
+        <div class="gift-ribbon"></div>
+    </div>
+    <div class="message" id="message">马荟娜是小狗</div>
+</div>
+
+<script>
+    const giftBox = document.getElementById('giftBox');
+    const message = document.getElementById('message');
+    const hint = document.getElementById('hint');
+
+    giftBox.addEventListener('click', () => {
+        giftBox.style.display = 'none';
+        hint.style.display = 'none';
+        message.style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
